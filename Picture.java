@@ -15,6 +15,7 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Person person1;
 
     /**
      * Constructor for objects of class Picture
@@ -54,6 +55,12 @@ public class Picture
         sun.moveVertical(-40);
         sun.changeSize(80);
         sun.makeVisible();
+        
+        person1 = new Person();
+        person1.changeColor("black");
+        person1.moveHorizontal(-150);
+        person1.moveVertical(27);
+        person1.makeVisible();
     }
 
     /**
@@ -81,6 +88,19 @@ public class Picture
             window.changeColor("black");
             roof.changeColor("green");
             sun.changeColor("yellow");
+        }
+    }
+    
+    /**
+     * Simulate a sunset by having the sun move down slowly
+     */
+    public void sunSet()
+    {
+        if (wall != null)
+        {
+            sun.slowMoveVertical(75);
+            sun.changeColor("red");
+            sun.slowMoveVertical(75);
         }
     }
 }
